@@ -72,7 +72,8 @@
                     <div class="col-lg-12">
                         <div class="header-elements">
                             <div class="site-logo">
-                                <a href="index.html"><img src="assets/img/logo/ZordikLogo2.png" alt=""></a>
+                                <a href="index.html"><img src="assets/img/logo/ZordikLogo2.png" alt=""
+                                        height="67px"></a>
                             </div>
                             <div class="main-menu">
                                 <ul>
@@ -84,6 +85,7 @@
                                             <li><a href="Flipkart-Account.html">Flipkart Account Management</a></li>
                                             <li><a href="Meesho-Account.html">Meesho Account Management</a></li>
                                             <li><a href="EComm-Service.html">ECommerce Account Management</a></li>
+                                            <li><a href="SEO-Company.html">SEO Services</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="Compliance.html">Compliance</a></li>
@@ -137,6 +139,7 @@
                         <li><a href="Flipkart-Account.html">Flipkart Account Management</a></li>
                         <li><a href="Meesho-Account.html">Meesho Account Management</a></li>
                         <li><a href="EComm-Service.html">ECommerce Account Management</a></li>
+                        <li><a href="SEO-Company.html">SEO Services</a></li>
                     </ul>
                 </li>
                 <li><a href="Compliance.html">Compliance</a></li>
@@ -274,41 +277,49 @@
                 <div class="col-lg-5">
                     <div class="contact-form-area">
                         <h4>Get In Touch</h4>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="input-area">
-                                    <input type="text" placeholder="First Name">
+                        <form method="POST" name="contact-form" id="contact-form">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="input-area">
+                                        <input type="text" placeholder="First Name" name="firstName" id="firstName"
+                                            required>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-lg-12">
-                                <div class="input-area">
-                                    <input type="text" placeholder="Last Name">
+                                <div class="col-lg-12">
+                                    <div class="input-area">
+                                        <input type="text" name="lastName" placeholder="Last Name" id="lastName"
+                                            required>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-lg-12">
-                                <div class="input-area">
-                                    <input type="email" placeholder="Email Address">
+                                <div class="col-lg-12">
+                                    <div class="input-area">
+                                        <input type="email" name="email" placeholder="Email Address" id="email"
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="input-area">
+                                        <input type="number" name="phone" placeholder="Phone Number" id="phone"
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="input-area">
+                                        <textarea placeholder="Your Message" name="message" id="Message"
+                                            required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="input-area">
+                                        <input type="submit" id="submit" value="Free Consultation" class="header-btn1">
+                                        <!-- <button type="submit" class="header-btn1">Get In Touch <span><i
+                                                    class="fa-solid fa-arrow-right"></i></span></button> -->
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-lg-12">
-                                <div class="input-area">
-                                    <input type="number" placeholder="Phone Number">
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="input-area">
-                                    <textarea placeholder="Your Message"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="input-area">
-                                    <button type="submit" class="header-btn1">Get In Touch <span><i
-                                                class="fa-solid fa-arrow-right"></i></span></button>
-                                </div>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -372,7 +383,7 @@
                             <li><a href="index.html">Home</a></li>
                             <li><a href="About.html">About Us</a></li>
                             <li><a href="Compliance.html">Compliance</a></li>
-                           
+
                             <li><a href="contact.html">Contact Us</a></li>
                         </ul>
                     </div>
@@ -423,6 +434,26 @@
         </div>
     </div>
     <!--===== FOOTER AREA ENDS =======-->
+
+    <script>
+        debugger
+        const scriptURL = "https://script.google.com/macros/s/AKfycbz3ZegnJsbmzUPxpMA_ucWzqFoCFVvaFspMwoiNqYjK3_R0223PrSZEjev12F30oRIIHw/exec"
+
+        const form = document.forms['contact-form']; // correct form name
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            fetch(scriptURL, {
+                method: 'POST',
+                body: new FormData(form)
+            })
+                .then(response => {
+                    alert("Thank you! Your form is submitted successfully.");
+                    form.reset(); // reset form
+                })
+                .catch(error => console.error('Error!', error.message));
+        });
+    </script>
 
     <!--===== JS SCRIPT LINK =======-->
     <script src="assets/js/plugins/bootstrap.min.js"></script>

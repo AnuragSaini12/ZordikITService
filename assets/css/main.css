@@ -21673,11 +21673,12 @@ html {
   z-index: 999;
   padding: 16px 0;
   transition: all 0.4s;
+  background: white;
 }
 
 .homepage13-body .header-area.homepage13 .site-logo img {
   width: 147px;
-  height: 48px;
+  height: 65px;
   -o-object-fit: cover;
   object-fit: cover;
 }
