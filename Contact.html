@@ -36,6 +36,27 @@
                     'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-WWXDM7V8');</script>
     <!-- End Google Tag Manager -->
+
+
+
+
+
+
+
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS
+        (function () {
+            emailjs.init("XoQRiUnb_sHV9fqcG"); // Replace with your EmailJS public key
+        })();
+    </script>
+
+
+
+
+
+
 </head>
 
 <body class="homepage1-body">
@@ -275,7 +296,7 @@
                 </div>
                 <div class="col-lg-1"></div>
                 <div class="col-lg-5">
-                    <div class="contact-form-area">
+                    <!-- <div class="contact-form-area d-none">
                         <h4>Get In Touch</h4>
                         <form method="POST" name="contact-form" id="contact-form">
                             <div class="row">
@@ -314,8 +335,46 @@
                                 <div class="col-lg-12">
                                     <div class="input-area">
                                         <input type="submit" id="submit" value="Free Consultation" class="header-btn1">
-                                        <!-- <button type="submit" class="header-btn1">Get In Touch <span><i
-                                                    class="fa-solid fa-arrow-right"></i></span></button> -->
+                                         <button type="submit" class="header-btn1">Get In Touch <span><i
+                                                    class="fa-solid fa-arrow-right"></i></span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div> -->
+                    <div class="contact-form-area">
+                        <h4>Get In Touch</h4>
+                        <form id="contact-form">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="input-area">
+                                        <input type="text" name="first_name" placeholder="First Name" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="input-area">
+                                        <input type="text" name="last_name" placeholder="Last Name" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="input-area">
+                                        <input type="email" name="user_email" placeholder="Email" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="input-area">
+                                        <input type="text" name="phone_number" placeholder="Phone Number" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="input-area">
+                                        <textarea name="message" placeholder="Your Message" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="input-area">
+                                        <button type="submit" class="header-btn1">Get In Touch <span><i
+                                                    class="fa-solid fa-arrow-right"></i></span></button>
                                     </div>
                                 </div>
                             </div>
@@ -436,6 +495,22 @@
     <!--===== FOOTER AREA ENDS =======-->
 
     <script>
+        debugger;
+        // Attach submit event
+        document.getElementById("contact-form").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            emailjs.sendForm("service_5tyw6aa", "template_wxlflgg", this)
+                .then(function () {
+                    alert("Email sent successfully!");
+                }, function (error) {
+                    console.error("FAILED...", error);
+                    alert("Failed to send email. See console for error.");
+                });
+        });
+    </script>
+
+    <!-- <script>
         debugger
         const scriptURL = "https://script.google.com/macros/s/AKfycbz3ZegnJsbmzUPxpMA_ucWzqFoCFVvaFspMwoiNqYjK3_R0223PrSZEjev12F30oRIIHw/exec"
 
@@ -453,7 +528,7 @@
                 })
                 .catch(error => console.error('Error!', error.message));
         });
-    </script>
+    </script> -->
 
     <!--===== JS SCRIPT LINK =======-->
     <script src="assets/js/plugins/bootstrap.min.js"></script>
